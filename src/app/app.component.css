@@ -1,0 +1,31 @@
+.header{
+    border: 1px solid red;
+     width: 100%;
+    height: 50px;
+}
+.content{
+    border: 1px solid red;
+    width: 100%;
+    height: auto;
+}
+.left{
+    
+    border: 1px solid red;
+    float: left;
+    width: 310px;
+    height: 100%;
+}
+.right{
+    
+    border: 1px solid red;
+    float: right;
+    width: 70%;
+    height: auto;
+}
+.allissues{
+    float: left;
+    border: 1px solid red;
+}
+.clear{
+    clear: both;
+}

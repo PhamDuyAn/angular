@@ -1,0 +1,29 @@
+<h2>Issues</h2>
+<p></p>            
+<table class="table">
+  <thead>
+    <tr >
+      <th>ID</th>
+      <th>Stracker</th>
+      <th>Status</th>
+      <th>Priority</th>
+      <th>Category</th>
+      <th>Subject</th>
+      <th>Assignee</th>
+      <th>Updated</th>
+    </tr>
+   </thead>
+   <tr *ngFor="let issues of RedmineElasticsearchList">
+     <td>{{issues.id}}</td>
+     <td></td>
+     <td>{{issues.statusName}}</td>
+     <td>{{issues.priorityText}}</td>
+     <td></td>
+     <td>{{issues.subject}}</td>
+     <td>{{issues.assignee}}</td>
+     <td>{{issues.updatedOn}}</td>
+   </tr>
+ </table>
+<p>
+</p>
+
