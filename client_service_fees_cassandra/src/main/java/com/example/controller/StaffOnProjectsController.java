@@ -35,14 +35,14 @@ public class StaffOnProjectsController {
 	@RequestMapping(value = "/staffonprojects/", method = RequestMethod.GET)
 	public ResponseEntity<List<StaffOnProjects>> ListAllStaffOnProjects() {
 		List<StaffOnProjects> staff = staffonprojectsservice.findAllStaffOnProjects();
-		//System.out.println("An Gay"+staff.get(0).getDailyCost());
-		if (staff==null) {
+		// System.out.println("An Gay"+staff.get(0).getDailyCost());
+		if (staff == null) {
 			System.out.println("go herhea11111111111111111111111111111111111111111111111111111111111");
 			return new ResponseEntity(HttpStatus.NO_CONTENT);
 			// You many decide to return HttpStatus.NOT_FOUND
 		}
 		return new ResponseEntity<List<StaffOnProjects>>(staff, HttpStatus.OK);
-		
+
 	}
 
 	// --------------------------get with id----------------------------------
@@ -54,7 +54,8 @@ public class StaffOnProjectsController {
 		StaffOnProjects staffonprojects = staffonprojectsservice.findByIdStaffOnProjects(id);
 		if (staffonprojects == null) {
 			logger.error("Staff with id {} not found.", id);
-			return new ResponseEntity(new CustomErrorType("Staff on Projects with id " + id + " not found"), HttpStatus.NOT_FOUND);
+			return new ResponseEntity(new CustomErrorType("Staff on Projects with id " + id + " not found"),
+					HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<StaffOnProjects>(staffonprojects, HttpStatus.OK);
 	}
@@ -68,14 +69,14 @@ public class StaffOnProjectsController {
 
 		if (staffonprojectsservice.isStaffExist(staffonprojects)) {
 			logger.error("Unable to create. A Staff on Projects on Projects with name {} already exist",
-					staffonprojects.getStaffOnProjectPeriocId());
+					staffonprojects.getStaff_on_project_id());
 			return new ResponseEntity(new CustomErrorType("Unable to create. A Staff on Projects with name "
-					+ staffonprojects.getStaffOnProjectPeriocId() + " already exist."), HttpStatus.CONFLICT);
+					+ staffonprojects.getStaff_on_project_id() + " already exist."), HttpStatus.CONFLICT);
 		}
 		staffonprojectsservice.saveStaffOnProjects(staffonprojects);
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(
-				ucBuilder.path("/api/staffonprojects/{id}").buildAndExpand(staffonprojects.getStaffOnProjectPeriocId()).toUri());
+		headers.setLocation(ucBuilder.path("/api/staffonprojects/{id}")
+				.buildAndExpand(staffonprojects.getStaff_on_project_id()).toUri());
 		return new ResponseEntity<String>(HttpStatus.CREATED);
 	}
 
@@ -91,15 +92,16 @@ public class StaffOnProjectsController {
 
 		if (currentStaffOnProjects == null) {
 			logger.error("Unable to update. Staff with id {} not found.", id);
-			return new ResponseEntity(new CustomErrorType("Unable to upate. Staff on Projects with id " + id + " not found."),
+			return new ResponseEntity(
+					new CustomErrorType("Unable to upate. Staff on Projects with id " + id + " not found."),
 					HttpStatus.NOT_FOUND);
 		}
-		currentStaffOnProjects.setProjectsid(staffonprojects.getProjectsid());
-		currentStaffOnProjects.setStaffid(staffonprojects.getStaffid());
-		currentStaffOnProjects.setRefRolescode(staffonprojects.getRefRolescode());
-		currentStaffOnProjects.setFromDatetime(staffonprojects.getFromDatetime());
-		currentStaffOnProjects.setToDatetime(staffonprojects.getToDatetime());
-		currentStaffOnProjects.setHourtyRate(staffonprojects.getHourtyRate());
+		currentStaffOnProjects.setProject_id(staffonprojects.getProject_id());
+		currentStaffOnProjects.setStaff_id(staffonprojects.getStaff_id());
+		currentStaffOnProjects.setRole_code(staffonprojects.getRole_code());
+		currentStaffOnProjects.setFrom_datetime(staffonprojects.getFrom_datetime());
+		currentStaffOnProjects.setTo_datetime(staffonprojects.getTo_datetime());
+		currentStaffOnProjects.setHourty_rate(staffonprojects.getHourty_rate());
 		staffonprojectsservice.updateStaffOnProjects(currentStaffOnProjects);
 		return new ResponseEntity<StaffOnProjects>(currentStaffOnProjects, HttpStatus.OK);
 	}
@@ -114,7 +116,8 @@ public class StaffOnProjectsController {
 		StaffOnProjects staffonprojects = staffonprojectsservice.findByIdStaffOnProjects(id);
 		if (staffonprojects == null) {
 			logger.error("Unable to delete. Staff on Projects with id {} not found.", id);
-			return new ResponseEntity(new CustomErrorType("Unable to delete. Staff on Projects with id " + id + " not found."),
+			return new ResponseEntity(
+					new CustomErrorType("Unable to delete. Staff on Projects with id " + id + " not found."),
 					HttpStatus.NOT_FOUND);
 		}
 		staffonprojectsservice.deleteStaffOnProjectsById(id);

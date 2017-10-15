@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.Currency;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -30,7 +31,7 @@ public class IssuesDemoController {
 	private IssuesDemoService issuesDemoService;
 	
 	@RequestMapping(value = "/issuedemo/", method = RequestMethod.GET)
-	public ResponseEntity<List<IssuesDemo>> ListAllStaff() {
+	public ResponseEntity<List<IssuesDemo>> ListAllIssue() {
 		List<IssuesDemo> issue = issuesDemoService.findAllIssuesDemo();
 		//System.out.println("An Gay"+staff.get(0).getDailyCost());
 		if (issue==null) {
@@ -45,11 +46,11 @@ public class IssuesDemoController {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@RequestMapping(value = "/issuedemo/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> getStaff(@PathVariable("id") int id) {
-		logger.info("Fetching Staff with id {}", id);
+	public ResponseEntity<?> getIssue(@PathVariable("id") int id) {
+		logger.info("Fetching issue with id {}", id);
 		IssuesDemo projects = issuesDemoService.findByIssuesDemoId(id);
 		if (projects == null) {
-			logger.error("Projects with id {} not found.", id);
+			logger.error("issue with id {} not found.", id);
 //			return new ResponseEntihttp://localhost:8080ty(new CustomErrorType("Projects with id " + id 
 //					+ " not found"), HttpStatus.NOT_FOUND);
 		}
@@ -59,17 +60,17 @@ public class IssuesDemoController {
 	// -------------------Create--------------------
 
 	@RequestMapping(value = "/issuedemo/", method = RequestMethod.POST)
-	public ResponseEntity<?> createStaff(@RequestBody IssuesDemo projects, UriComponentsBuilder ucBuilder) {
-		logger.info("Creating Staff : {}", projects);
+	public ResponseEntity<?> createIssue(@RequestBody IssuesDemo projects, UriComponentsBuilder ucBuilder) {
+		logger.info("Creating issue : {}", projects);
 
 		if (issuesDemoService.isIssuesDemoExist(projects)) {
-			logger.error("Unable to create. A Projects with name {} already exist");
+			logger.error("Unable to create. A issue with name {} already exist");
 //			return new ResponseEntity(new CustomErrorType("Unable to create. A Projects with name  already exist."),HttpStatus.CONFLICT);
 		}
 		issuesDemoService.saveIssuesDemo(projects);
 
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/api/projects/{id}").buildAndExpand(projects.getId()).toUri());
+		headers.setLocation(ucBuilder.path("/api/issue/{id}").buildAndExpand(projects.getId()).toUri());
 		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
 	}
 
@@ -77,8 +78,8 @@ public class IssuesDemoController {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value = "/issuedemo/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> updateStaff(@PathVariable("id") int id, @RequestBody IssuesDemo projects) {
-		logger.info("Updating Projects with id {}", id);
+	public ResponseEntity<?> updateIssue(@PathVariable("id") int id, @RequestBody IssuesDemo projects) {
+		logger.info("Updating issue with id {}", id);
 
 		IssuesDemo currentpro = issuesDemoService.findByIssuesDemoId(id);
 
@@ -99,6 +100,15 @@ public class IssuesDemoController {
 		currentpro.setParentId(projects.getParentId());
 		currentpro.setPriorityId(projects.getPriorityId());
 		currentpro.setStatusId(projects.getStatusId());
+		currentpro.setCategory(projects.getCategory());
+		currentpro.setProject(projects.getProject());
+		currentpro.setStatusName(projects.getStatusName());
+		currentpro.setSubject(projects.getSubject());
+		currentpro.setTracker(projects.getTracker());
+		currentpro.setUpdatedOn(projects.getUpdatedOn());
+		currentpro.setSpentHours(projects.getSpentHours());
+		
+		
 		
 		return new ResponseEntity<IssuesDemo>(currentpro, HttpStatus.OK);
 	}
@@ -107,12 +117,12 @@ public class IssuesDemoController {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@RequestMapping(value = "/issuedemo/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<?> deleteStaff(@PathVariable("id") int id) {
+	public ResponseEntity<?> deleteIssue(@PathVariable("id") int id) {
 		logger.info("Fetching & Deleting  with id {}", id);
 
 		IssuesDemo projects = issuesDemoService.findByIssuesDemoId(id);
 		if (projects == null) {
-			logger.error("Unable to delete. Projects with id {} not found.", id);
+			logger.error("Unable to delete. issue with id {} not found.", id);
 //			return new ResponseEntity(new CustomErrorType("Unable to delete with id " + id + " not found."),
 //					HttpStatus.NOT_FOUND);
 		}
@@ -123,10 +133,10 @@ public class IssuesDemoController {
 	// ------------------- Delete All-----------------------------
 
 	@RequestMapping(value = "/issuedemo/deletall", method = RequestMethod.DELETE)
-	public ResponseEntity<IssuesDemo> deleteAllStaff() {
+	public ResponseEntity<IssuesDemo> deleteAllIssue() {
 		logger.info("Deleting All");
 
-		issuesDemoService.deleteAllProjects();
+		issuesDemoService.deleteAllIssue();
 		return new ResponseEntity<IssuesDemo>(HttpStatus.NO_CONTENT);
 	}
 

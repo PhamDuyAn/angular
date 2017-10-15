@@ -39,7 +39,7 @@ public class IssuesDemoServiceImpl implements IssuesDemoService{
 	}
 
 	@Override
-	public void deleteAllProjects() {
+	public void deleteAllIssueDemo() {
 		// TODO Auto-generated method stub
 		issuesDemoRepository.deleteAll();
 	}

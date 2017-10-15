@@ -9,86 +9,39 @@ import org.springframework.data.cassandra.mapping.Table;
 @Table(value = "services")
 public class Services implements java.io.Serializable {
 
-<<<<<<< HEAD
-	
-	private String serviceCode;
-	private String parentServiceCode;
-	private String serviceName;
-=======
 	@PrimaryKey
 	private String service_code;
 	private String parent_service_code;
 	private String service_name;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
-
-	public Services() {
-	}
-
-	public Services(String serviceCode, String parentServiceCode, String serviceName) {
-<<<<<<< HEAD
-		this.serviceCode = serviceCode;
-		this.parentServiceCode = parentServiceCode;
-		this.serviceName = serviceName;
-	}
-
-	@PrimaryKey
-	@Column("service_code")
-	public String getServiceCode() {
-		return serviceCode;
-	}
-
-	public void setServiceCode(String serviceCode) {
-		this.serviceCode = serviceCode;
-=======
-		this.service_code = serviceCode;
-		this.parent_service_code = parentServiceCode;
-		this.service_name = serviceName;
-	}
-
-	
-	@Column("service_code")
-	public String getServiceCode() {
+	public String getService_code() {
 		return service_code;
 	}
-
-	public void setServiceCode(String serviceCode) {
-		this.service_code = serviceCode;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setService_code(String service_code) {
+		this.service_code = service_code;
 	}
-
-	@Column("parent_service_code")
-	public String getParentServiceCode() {
-<<<<<<< HEAD
-		return parentServiceCode;
-	}
-
-	public void setParentServiceCode(String parentServiceCode) {
-		this.parentServiceCode = parentServiceCode;
-=======
+	public String getParent_service_code() {
 		return parent_service_code;
 	}
-
-	public void setParentServiceCode(String parentServiceCode) {
-		this.parent_service_code = parentServiceCode;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setParent_service_code(String parent_service_code) {
+		this.parent_service_code = parent_service_code;
 	}
-
-	@Column("service_name")
-	public String getServiceName() {
-<<<<<<< HEAD
-		return serviceName;
-	}
-
-	public void setServiceName(String serviceName) {
-		this.serviceName = serviceName;
-=======
+	public String getService_name() {
 		return service_name;
 	}
-
-	public void setServiceName(String serviceName) {
-		this.service_name = serviceName;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setService_name(String service_name) {
+		this.service_name = service_name;
 	}
+	public Services(String service_code, String parent_service_code, String service_name) {
+		super();
+		this.service_code = service_code;
+		this.parent_service_code = parent_service_code;
+		this.service_name = service_name;
+	}
+	public Services() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 
 	
 

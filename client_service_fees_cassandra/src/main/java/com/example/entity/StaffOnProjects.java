@@ -12,170 +12,72 @@ import org.springframework.data.cassandra.mapping.Table;
 @Table(value = "staff_on_projects")
 public class StaffOnProjects implements java.io.Serializable {
 
-<<<<<<< HEAD
 	@PrimaryKey
-	private Integer staff_on_project_perioc_id;
-	private Integer projectsid;
-	private String staffid;
-	private String refRolescode;
-	private String fromDatetime;
-	private String toDatetime;
-	private String hourtyRate;
-
-	public StaffOnProjects() {
-	}
-
-=======
-	
-	@PrimaryKey
-	private Integer staff_on_project_perioc_id;
+	private Integer staff_on_project_id;
 	private Integer project_id;
 	private Integer staff_id;
 	private String role_code;
 	private String from_datetime;
 	private String to_datetime;
 	private String hourty_rate;
-
-	public StaffOnProjects() {
-	}
 	
-	@Column("staff_on_project_perioc_id")
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
-	public Integer getStaffOnProjectPeriocId() {
-		return staff_on_project_perioc_id;
+	public Integer getStaff_on_project_id() {
+		return staff_on_project_id;
 	}
-
-	public void setStaffOnProjectPeriocId(Integer staffOnProjectPeriocId) {
-		this.staff_on_project_perioc_id = staffOnProjectPeriocId;
+	public void setStaff_on_project_id(Integer staff_on_project_id) {
+		this.staff_on_project_id = staff_on_project_id;
 	}
-
-	@Column("project_id")
-	public Integer getProjectsid() {
-<<<<<<< HEAD
-		return projectsid;
-	}
-
-	public void setProjectsid(Integer projectsid) {
-		this.projectsid = projectsid;
-	}
-
-	@Column("staff_id")
-	public String getStaffid() {
-		return staffid;
-	}
-
-	public void setStaffid(String staffid) {
-		this.staffid = staffid;
-=======
+	public Integer getProject_id() {
 		return project_id;
 	}
-
-	public void setProjectsid(Integer projectsid) {
-		this.project_id = projectsid;
+	public void setProject_id(Integer project_id) {
+		this.project_id = project_id;
 	}
-
-	@Column("staff_id")
-	public Integer getStaffid() {
+	public Integer getStaff_id() {
 		return staff_id;
 	}
-
-	public void setStaffid(Integer staffid) {
-		this.staff_id = staffid;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setStaff_id(Integer staff_id) {
+		this.staff_id = staff_id;
 	}
-
-	@Column("role_code")
-	public String getRefRolescode() {
-<<<<<<< HEAD
-		return refRolescode;
-	}
-
-	public void setRefRolescode(String refRolescode) {
-		this.refRolescode = refRolescode;
-=======
+	public String getRole_code() {
 		return role_code;
 	}
-
-	public void setRefRolescode(String refRolescode) {
-		this.role_code = refRolescode;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setRole_code(String role_code) {
+		this.role_code = role_code;
 	}
-
-	@Column("from_datetime")
-	public String getFromDatetime() {
-<<<<<<< HEAD
-		return fromDatetime;
-	}
-
-	public void setFromDatetime(String fromDatetime) {
-		this.fromDatetime = fromDatetime;
-=======
+	public String getFrom_datetime() {
 		return from_datetime;
 	}
-
-	public void setFromDatetime(String fromDatetime) {
-		this.from_datetime = fromDatetime;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setFrom_datetime(String from_datetime) {
+		this.from_datetime = from_datetime;
 	}
-
-	@Column("to_datetime")
-	public String getToDatetime() {
-<<<<<<< HEAD
-		return toDatetime;
-	}
-
-	public void setToDatetime(String toDatetime) {
-		this.toDatetime = toDatetime;
-=======
+	public String getTo_datetime() {
 		return to_datetime;
 	}
-
-	public void setToDatetime(String toDatetime) {
-		this.to_datetime = toDatetime;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setTo_datetime(String to_datetime) {
+		this.to_datetime = to_datetime;
 	}
-
-	@Column("hourty_rate")
-	public String getHourtyRate() {
-<<<<<<< HEAD
-		return hourtyRate;
-	}
-
-	public void setHourtyRate(String hourtyRate) {
-		this.hourtyRate = hourtyRate;
-	}
-
-	public StaffOnProjects(Integer staffOnProjectPeriocId, Integer projectsid, String staffid, String refRolescode,
-			String fromDatetime, String toDatetime, String hourtyRate) {
-		super();
-		this.staff_on_project_perioc_id = staffOnProjectPeriocId;
-		this.projectsid = projectsid;
-		this.staffid = staffid;
-		this.refRolescode = refRolescode;
-		this.fromDatetime = fromDatetime;
-		this.toDatetime = toDatetime;
-		this.hourtyRate = hourtyRate;
-=======
+	public String getHourty_rate() {
 		return hourty_rate;
 	}
-
-	public void setHourtyRate(String hourtyRate) {
-		this.hourty_rate = hourtyRate;
+	public void setHourty_rate(String hourty_rate) {
+		this.hourty_rate = hourty_rate;
 	}
-
-	public StaffOnProjects(Integer staffOnProjectPeriocId, Integer projectsid, Integer staffid, String refRolescode,
-			String fromDatetime, String toDatetime, String hourtyRate) {
+	public StaffOnProjects(Integer staff_on_project_perioc_id, Integer project_id, Integer staff_id, String role_code,
+			String from_datetime, String to_datetime, String hourty_rate) {
 		super();
-		this.staff_on_project_perioc_id = staffOnProjectPeriocId;
-		this.project_id = projectsid;
-		this.staff_id = staffid;
-		this.role_code = refRolescode;
-		this.from_datetime = fromDatetime;
-		this.to_datetime = toDatetime;
-		this.hourty_rate = hourtyRate;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+		this.staff_on_project_id = staff_on_project_perioc_id;
+		this.project_id = project_id;
+		this.staff_id = staff_id;
+		this.role_code = role_code;
+		this.from_datetime = from_datetime;
+		this.to_datetime = to_datetime;
+		this.hourty_rate = hourty_rate;
 	}
-
+	public StaffOnProjects() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 
 }

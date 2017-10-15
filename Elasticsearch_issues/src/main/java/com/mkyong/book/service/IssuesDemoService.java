@@ -14,7 +14,7 @@ public interface IssuesDemoService {
 
 	void deleteIssuesDemoById(int id);
 
-	void deleteAllProjects();
+	void deleteAllIssueDemo();
 
 	List<IssuesDemo> findAllIssuesDemo();
 

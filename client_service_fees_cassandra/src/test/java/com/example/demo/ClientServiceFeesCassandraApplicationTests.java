@@ -36,9 +36,9 @@ public class ClientServiceFeesCassandraApplicationTests {
 	public void StaffOnProjectsTest() {
 		//-----Save----
 		StaffOnProjects staffonproject= new StaffOnProjects();
-		staffonproject.setStaffid(1);
-		staffonproject.setStaffOnProjectPeriocId(1);
-		staffonproject.setRefRolescode("VT1");
+		staffonproject.setStaff_id(1);
+		staffonproject.setStaff_on_project_id(1);
+		staffonproject.setRole_code("VT1");
 		staffOnProjectsRepository.save(staffonproject);
 		staffOnProjectsRepository.findAll();
 		

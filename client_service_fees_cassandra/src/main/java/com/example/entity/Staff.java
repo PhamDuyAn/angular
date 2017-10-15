@@ -9,14 +9,8 @@ import org.springframework.data.cassandra.mapping.Table;
  */
 @Table(value = "staff")
 public class Staff implements java.io.Serializable {
-<<<<<<< HEAD
-
 	@PrimaryKey
 	private Integer staff_id;
-=======
-	@PrimaryKey
-	private Integer staff_id;
-	
 	private String staff_name;
 	private String gender_MF;
 	private String date_of_birth;
@@ -26,222 +20,79 @@ public class Staff implements java.io.Serializable {
 	private String date_left;
 	private String other_staff_details;
 	//private Set<StaffOnProjects> staffOnProjectses = new HashSet<StaffOnProjects>(0);
-
-	public Staff() {
-	}
-
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
-	public Staff(Integer staff_id, String staffName, String genderMf, String dateOfBirth, String dailyCost,
-			String dailyRate, String dateJoined, String dateLeft, String otherStaffDetails) {
-		super();
-		this.staff_id = staff_id;
-<<<<<<< HEAD
-		this.staffName = staffName;
-		this.genderMf = genderMf;
-		this.dateOfBirth = dateOfBirth;
-		this.dailyCost = dailyCost;
-		this.dailyRate = dailyRate;
-		this.dateJoined = dateJoined;
-		this.dateLeft = dateLeft;
-		this.otherStaffDetails = otherStaffDetails;
-	}
-
-	private String staffName;
-	private String genderMf;
-	private String dateOfBirth;
-	private String dailyCost;
-	private String dailyRate;
-	private String dateJoined;
-	private String dateLeft;
-	private String otherStaffDetails;
-	//private Set<StaffOnProjects> staffOnProjectses = new HashSet<StaffOnProjects>(0);
-
-	public Staff() {
-=======
-		this.staff_name = staffName;
-		this.gender_MF = genderMf;
-		this.date_of_birth = dateOfBirth;
-		this.daily_cost = dailyCost;
-		this.daily_rate = dailyRate;
-		this.date_joined = dateJoined;
-		this.date_left = dateLeft;
-		this.other_staff_details = otherStaffDetails;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
-	}
-
-	public Staff(String staffName, String genderMf, String dateOfBirth, String dailyCost, String dailyRate,
-			String dateJoined, String dateLeft, String otherStaffDetails) {
-<<<<<<< HEAD
-		this.staffName = staffName;
-		this.genderMf = genderMf;
-		this.dateOfBirth = dateOfBirth;
-		this.dailyCost = dailyCost;
-		this.dailyRate = dailyRate;
-		this.dateJoined = dateJoined;
-		this.dateLeft = dateLeft;
-		this.otherStaffDetails = otherStaffDetails;
-	}
-
-	@PrimaryKey
-=======
-		this.staff_name = staffName;
-		this.gender_MF = genderMf;
-		this.date_of_birth = dateOfBirth;
-		this.daily_cost = dailyCost;
-		this.daily_rate = dailyRate;
-		this.date_joined = dateJoined;
-		this.date_left = dateLeft;
-		this.other_staff_details = otherStaffDetails;
-	}
-
-	
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
-	@Column("staff_id")
-	public Integer getStaffId() {
+	public Integer getStaff_id() {
 		return staff_id;
 	}
-
-	public void setStaffId(Integer staffId) {
-		this.staff_id = staffId;
+	public void setStaff_id(Integer staff_id) {
+		this.staff_id = staff_id;
 	}
-
-	@Column("staff_name")
-	public String getStaffName() {
-<<<<<<< HEAD
-		return staffName;
-	}
-
-	public void setStaffName(String staffName) {
-		this.staffName = staffName;
-=======
+	public String getStaff_name() {
 		return staff_name;
 	}
-
-	public void setStaffName(String staffName) {
-		this.staff_name = staffName;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setStaff_name(String staff_name) {
+		this.staff_name = staff_name;
 	}
-	
-
-	@Column("gender_MF")
-	public String getGenderMf() {
-<<<<<<< HEAD
-		return genderMf;
-	}
-
-	public void setGenderMf(String genderMf) {
-		this.genderMf = genderMf;
-=======
+	public String getGender_MF() {
 		return gender_MF;
 	}
-
-	public void setGenderMf(String genderMf) {
-		this.gender_MF = genderMf;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setGender_MF(String gender_MF) {
+		this.gender_MF = gender_MF;
 	}
-
-	@Column("date_of_birth")
-	public String getDateOfBirth() {
-<<<<<<< HEAD
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-=======
+	public String getDate_of_birth() {
 		return date_of_birth;
 	}
-
-	public void setDateOfBirth(String dateOfBirth) {
-		this.date_of_birth = dateOfBirth;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setDate_of_birth(String date_of_birth) {
+		this.date_of_birth = date_of_birth;
 	}
-
-	@Column("daily_cost")
-	public String getDailyCost() {
-<<<<<<< HEAD
-		return dailyCost;
-	}
-
-	public void setDailyCost(String dailyCost) {
-		this.dailyCost = dailyCost;
-=======
+	public String getDaily_cost() {
 		return daily_cost;
 	}
-
-	public void setDailyCost(String dailyCost) {
-		this.daily_cost = dailyCost;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setDaily_cost(String daily_cost) {
+		this.daily_cost = daily_cost;
 	}
-
-	@Column("daily_rate")
-	public String getDailyRate() {
-<<<<<<< HEAD
-		return dailyRate;
-	}
-
-	public void setDailyRate(String dailyRate) {
-		this.dailyRate = dailyRate;
-=======
+	public String getDaily_rate() {
 		return daily_rate;
 	}
-
-	public void setDailyRate(String dailyRate) {
-		this.daily_rate = dailyRate;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setDaily_rate(String daily_rate) {
+		this.daily_rate = daily_rate;
 	}
-
-	@Column("date_joined")
-	public String getDateJoined() {
-<<<<<<< HEAD
-		return dateJoined;
-	}
-
-	public void setDateJoined(String dateJoined) {
-		this.dateJoined = dateJoined;
-=======
+	public String getDate_joined() {
 		return date_joined;
 	}
-
-	public void setDateJoined(String dateJoined) {
-		this.date_joined = dateJoined;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setDate_joined(String date_joined) {
+		this.date_joined = date_joined;
 	}
-
-	@Column("date_left")
-	public String getDateLeft() {
-<<<<<<< HEAD
-		return dateLeft;
-	}
-
-	public void setDateLeft(String dateLeft) {
-		this.dateLeft = dateLeft;
-=======
+	public String getDate_left() {
 		return date_left;
 	}
-
-	public void setDateLeft(String dateLeft) {
-		this.date_left = dateLeft;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setDate_left(String date_left) {
+		this.date_left = date_left;
 	}
-
-	@Column("other_staff_details")
-	public String getOtherStaffDetails() {
-<<<<<<< HEAD
-		return otherStaffDetails;
-	}
-
-	public void setOtherStaffDetails(String otherStaffDetails) {
-		this.otherStaffDetails = otherStaffDetails;
-=======
+	public String getOther_staff_details() {
 		return other_staff_details;
 	}
-
-	public void setOtherStaffDetails(String otherStaffDetails) {
-		this.other_staff_details = otherStaffDetails;
->>>>>>> 53a0f3d2b1b2dcfccaac2aad8333ae9f2c17535c
+	public void setOther_staff_details(String other_staff_details) {
+		this.other_staff_details = other_staff_details;
+	}
+	public Staff(Integer staff_id, String staff_name, String gender_MF, String date_of_birth, String daily_cost,
+			String daily_rate, String date_joined, String date_left, String other_staff_details) {
+		super();
+		this.staff_id = staff_id;
+		this.staff_name = staff_name;
+		this.gender_MF = gender_MF;
+		this.date_of_birth = date_of_birth;
+		this.daily_cost = daily_cost;
+		this.daily_rate = daily_rate;
+		this.date_joined = date_joined;
+		this.date_left = date_left;
+		this.other_staff_details = other_staff_details;
+	}
+	public Staff() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
+	
 	
 
 }

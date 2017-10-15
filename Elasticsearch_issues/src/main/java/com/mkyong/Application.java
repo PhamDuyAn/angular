@@ -25,8 +25,6 @@ public class Application implements CommandLineRunner {
 	@Autowired
 	private ElasticsearchOperations es;
 
-	@Autowired
-	private IssuesDemoRepository issu;
 	// @Autowired
 	
 	@Autowired IssuesDemoService issuesDemoService;
@@ -38,24 +36,58 @@ public class Application implements CommandLineRunner {
 	}
 
 	public void addIssues() throws RedmineException {
-		System.setProperty("http.proxyHost", "10.225.3.1");
-		System.setProperty("http.proxyPort", "3128");
-		 String uri = "http://apis.ifisolution.local:8080/projects/training-project";
+//		System.setProperty("http.proxyHost", "10.225.3.1");
+//		System.setProperty("http.proxyPort", "3128");
+//		 String uri = "http://apis.ifisolution.local:8080/projects/training-project";
+//		// String apiAccessKey = "a3221bfcef5750219bd0a2df69519416dba17fc9";
+//		 String projectKey = "training-project";
+//		 Integer queryId = null; // any
+//		 IssuesDemo issuedemo = new IssuesDemo();
+//		 RedmineManager mgr = RedmineManagerFactory.createWithUserAuth(uri,
+//		 "fresher12", "12345678");
+//		
+//		 IssueManager issueManager = mgr.getIssueManager();
+//		 List<Issue> issues = issueManager.getIssues(projectKey, queryId);
+//		 for (Issue issue : issues) {
+//		 issuedemo.setId(issue.getId());
+//		 issuedemo.setSubject(issue.getSubject());
+//		 //issuedemo.setAssignee(issue.getAssignee());
+////		 System.out.println(issuedemo.getId());
+////		 System.out.println(issuedemo.getSubject());
+//		 issuesDemoService.saveIssuesDemo(issuedemo);
+//		 }
+		 String uri = "http://www.redmine.org/projects/redmine";
 		// String apiAccessKey = "a3221bfcef5750219bd0a2df69519416dba17fc9";
-		 String projectKey = "training-project";
+		 String projectKey = "Redmine";
 		 Integer queryId = null; // any
 		 IssuesDemo issuedemo = new IssuesDemo();
 		 RedmineManager mgr = RedmineManagerFactory.createWithUserAuth(uri,
-		 "fresher12", "12345678");
+		 "phamduyan102", "Ph@mduyan9X");
 		
 		 IssueManager issueManager = mgr.getIssueManager();
 		 List<Issue> issues = issueManager.getIssues(projectKey, queryId);
 		 for (Issue issue : issues) {
 		 issuedemo.setId(issue.getId());
-		 issuedemo.setSubject(issue.getSubject());
-		 //issuedemo.setAssignee(issue.getAssignee());
-//		 System.out.println(issuedemo.getId());
-//		 System.out.println(issuedemo.getSubject());
+		 issuedemo.setAuthor(issue.getAuthor().getFullName());
+		 issuedemo.setCategory(issue.getCategory().getName());
+		 issuedemo.setCreatedOn(issue.getCreatedOn());
+		 //issuedemo.setDescription(issue.getDescription());
+		 //issuedemo.setDoneRatio(issue.getDoneRatio());
+		 //issuedemo.setDueDate(issue.getDueDate());
+		 //issuedemo.setEstimatedHours(issue.getEstimatedHours());
+		 //issuedemo.setParentId(issue.getParentId());
+		 //issuedemo.setPriorityId(issue.getPriorityId());
+		 //issuedemo.setPriorityText(issue.getPriorityText());
+		 //issuedemo.setProject(issue.getProject().getName());
+		 //issuedemo.setSpentHours(issue.getSpentHours());
+		 //issuedemo.setStartDate(issue.getStartDate());
+		 //issuedemo.setStatusId(issue.getStatusId());
+		 //issuedemo.setStatusName(issue.getStatusName());
+//		 issuedemo.setSubject(issue.getSubject());
+//		 issuedemo.setTracker(issue.getTracker().getName());
+//		 issuedemo.setUpdatedOn(issue.getUpdatedOn());
+//		 issuedemo.setAssignee(issue.getAssignee().getFullName());
+		 System.out.println("addd-------------"+issuedemo.toString());
 		 issuesDemoService.saveIssuesDemo(issuedemo);
 		 }
 	}
