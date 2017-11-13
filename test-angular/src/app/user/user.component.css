@@ -1,0 +1,38 @@
+.big {     
+	width:300px;
+	height:300px;
+	border:1px solid rgb(39, 121, 245);
+	position:relative;     /*quy dinh thuoc tinh lam nen*/
+	margin: auto;
+	-webkit-perspective:400px;/*tao quay 3D */
+	-webkit-transform-style:preserve-3d;/*tao quay 3D on dinh hon */
+}
+.big image{
+	border-radius:10px 10px 10px 10px;
+width: 300px;
+	
+height: 300px;
+}
+.big .small{
+    border-radius:10px 10px 10px 10px;
+	opacity:0;					/*Do trong*/
+	width:300px;
+	height:300px;
+	background: #12398d;
+	color: white;
+	position: absolute;			/*nam trong position renative*/
+	top: 0px;
+	left: 0px;
+	transition:all ease 1s;/* thoi gian Chuyen dong*/
+	-webkit-transform:rotateY(0deg);
+	-webkit-transform-origin:0px 0px; /* trai 0px tren 0px*/
+
+}
+.big:hover .small{/*hover co class nho*/
+	opacity:0.7;				/*Do trong*/
+	/*top:30px;
+	left:30px;*/
+	-webkit-transform:rotateY(360deg);
+	
+
+}

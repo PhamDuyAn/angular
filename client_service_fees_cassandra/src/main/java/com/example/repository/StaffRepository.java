@@ -7,6 +7,5 @@ import com.example.entity.Staff;
 
 @Repository
 public interface StaffRepository extends CrudRepository<Staff, Integer> {
-	Staff findByStaffName(String StaffName);
 	
 }

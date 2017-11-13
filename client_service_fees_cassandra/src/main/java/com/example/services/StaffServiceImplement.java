@@ -25,7 +25,7 @@ public class StaffServiceImplement implements StaffService {
 	@Override
 	public Staff findByStaffName(String staffName) {
 		// TODO Auto-generated method stub
-		return staffrepository.findByStaffName(staffName);
+		return null;
 	}
 
 	@Override

@@ -1,0 +1,84 @@
+<h2>Create Personal</h2>
+<form id="adduser" name = "adduser" #userdata="ngForm" (ngSubmit)="adduser(userdata.value)" >
+  <table class="table table-bordered" >
+    <thead>
+      <tr>
+          <th class="bg-primary" colspan="2">Create Personal</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><label for="name_personal">Fullname: </label></td>
+          <td><input type="text" name="name_personal" id="name_personal"  placeholder="Full name" maxlength="24" required minlength="4"  [(ngModel)]="name_personal"  #myName="ngModel">
+            <div *ngIf="myName.errors && (myName.dirty || myName.touched)" class="alert alert-danger">
+                <div [hidden]="!myName.errors.required">
+                    Name is required
+                </div>
+                <div [hidden]="!myName.errors.minlength">
+                    Name must be at least 4 characters long.
+                </div>
+                <div [hidden]="!myName.errors.maxlength">
+                    Name cannot be more than 24 characters long.
+                </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tbody>
+          <tr>
+              <td><label for="date">Date: </label></td>
+              <td><input type="date" name="date_personal" id="date_personal" placeholder="date_personal" ngModel required ></td>
+          </tr>
+            <tr>
+              <td><label for="sex">Address: </label></td>
+              <td><textarea type="text" name="address_personal" id="address_personal" placeholder="Address" ngModel ></textarea></td>
+            </tr>
+            <tr>
+              <td><label for="sex">Sex: </label></td>
+              <td><input type="radio" value="male" name="sex_personal" id="sex_personal"  ngModel >Male<br>
+                <input type="radio" value="female" name="sex_personal" id="sex_personal"  ngModel >FeMale<br>
+                <input type="radio" value="other" name="sex_personal" id="sex_personal" ngModel >Other<br></td>
+            </tr>
+            <tr>
+              <td><label for="create_date">Create Date: </label></td>
+              <td><input type="date" name="create_date" id="create_date"  ngModel required ><br></td>
+            </tr>
+            <tr>
+              <td><label for="email">Email: </label></td>
+              <td><input type="email" name="email" id="email" placeholder="Email" required  [(ngModel)]="email"  #myEmail="ngModel" >
+                
+              </td>
+            </tr>
+            <tr>
+              <td><label for="sex">Image: </label></td>
+              <td><input type="file" name="image" id="image" ngModel   required ><br></td>
+            </tr>
+            <tr>
+              <td><label for="sex">Position: </label></td>
+              <td><select name="position" id="position" [(ngModel)]="selectedValue" ngModel >
+              <option *ngFor="let pos of position" value="{{pos.value}}">{{pos.viewvalue}}</option>  
+              </select></td>
+            </tr>
+            <tr>
+              <td><label for="sex">Phone Number: </label></td>
+              <td><input type="number"  name="numberphone_personal" id="numberphone_personal" placeholder="Number Phone"  required  [(ngModel)]="numberphone_personal"  #myPhone="ngModel" >
+                <div *ngIf="myPhone.errors && (myPhone.dirty || myPhone.touched)" class="alert alert-danger">
+                    <div [hidden]="!myPhone.errors.required">
+                        Phone is required
+                    </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Add User"  ></td>
+              </tr>
+          </tbody>
+  </table>
+</form>
+<form action="" [formGroup]="FileForm" id="FileForm" (ngSubmit)="filesubmit(FileForm.value)">
+  <input type="file" name = "image" #image formControlName="image" >
+  <input type="submit" value="Submit">
+</form>
+<h3 *ngIf="isAdded">add successfull</h3>
